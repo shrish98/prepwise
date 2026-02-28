@@ -5,8 +5,9 @@ export default function Home() {
     return (
         <div>
             <div className="grid-background"></div>
-            <div className="relative z-50">
+            <div className="relative">
                 <HeroSection />
+
             </div>
         </div>
     )

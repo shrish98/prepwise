@@ -153,3 +153,18 @@
 @utility gradient-title {
   @apply gradient font-extrabold tracking-tighter pb-2 pr-2;
 }
+
+.hero-image-wrapper {
+  margin-top: 1.25rem;
+}
+
+.hero-image {
+  transform: perspective(1000px) rotateX(15deg) scale(1);
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.hero-image.scrolled {
+  transform: perspective(1000px) rotateX(0deg) scale(1);
+}
