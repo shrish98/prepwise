@@ -3,10 +3,11 @@ import HeroSection from "@/components/ui/hero";
 import { features } from "./data/features";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { BrainCircuit, Briefcase, LineChart, ScrollText } from "lucide-react";
+import { BrainCircuit, Briefcase, LineChart, ScrollText, ArrowRight } from "lucide-react";
 import { howItWorks } from "./data/howItWorks";
 import { testimonial } from "./data/testimonial";
 import Image from "next/image";
+import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faqs } from "./data/faqs";
 
@@ -163,6 +164,28 @@ export default function Home() {
                         </div>
                     </div>
 
+                </section>
+
+                <section className="w-full">
+                    <div className="mx-auto py-16 gradient">
+                        <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
+                            <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
+                                Ready to Accelerate Your Career?
+                            </h2>
+                            <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
+                                Join thousands of professionals who are advancing their careers with AI-powered guidance.
+                            </p>
+                            <Link href="/dashboard" passHref>
+                                <Button
+                                    size="lg"
+                                    variant="secondary"
+                                    className="h-11 mt-5 animate-bounce"
+                                >
+                                    Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
                 </section>
             </div >
         </div >

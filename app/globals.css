@@ -147,11 +147,11 @@
 }
 
 @utility gradient {
-  @apply bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-b from-gray-400 via-gray-200 to-gray-600;
 }
 
 @utility gradient-title {
-  @apply gradient font-extrabold tracking-tighter pb-2 pr-2;
+  @apply gradient bg-clip-text text-transparent font-extrabold tracking-tighter pb-2 pr-2;
 }
 
 .hero-image-wrapper {
