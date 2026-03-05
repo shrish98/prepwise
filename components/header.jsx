@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,7 +28,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { checkUser } from '@/lib/inngest/checkUser'
 
-async function Header () {
+async function Header() {
   await checkUser()
   return (
     <header className='sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-between items-center p-4 border-b'>
@@ -55,12 +55,10 @@ async function Header () {
           </Button>
 
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button className='flex items-center gap-2'>
-                <StarsIcon className='h-4 w-4' />
-                <span className='hidden md:block'>Growth tools</span>
-                <ChevronDown className='h-4 w-4' />
-              </Button>
+            <DropdownMenuTrigger className={`${buttonVariants({ variant: 'default' })} flex items-center gap-2 outline-none`}>
+              <StarsIcon className='h-4 w-4' />
+              <span className='hidden md:block'>Growth tools</span>
+              <ChevronDown className='h-4 w-4' />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem asChild>
@@ -89,7 +87,7 @@ async function Header () {
         </SignedIn>
         <SignedOut>
           <SignInButton fallbackRedirectUrl='/dashboard' mode='modal' asChild>
-            <Button variant='outline'>Sign In</Button>
+            <button className={buttonVariants({ variant: 'outline' })}>Sign In</button>
           </SignInButton>
         </SignedOut>
         <SignedIn>
