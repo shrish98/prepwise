@@ -55,10 +55,12 @@ async function Header() {
           </Button>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className={`${buttonVariants({ variant: 'default' })} flex items-center gap-2 outline-none`}>
-              <StarsIcon className='h-4 w-4' />
-              <span className='hidden md:block'>Growth tools</span>
-              <ChevronDown className='h-4 w-4' />
+            <DropdownMenuTrigger asChild>
+              <Button variant="default" className="flex items-center gap-2 outline-none">
+                <StarsIcon className='h-4 w-4' />
+                <span className='hidden md:block'>Growth tools</span>
+                <ChevronDown className='h-4 w-4' />
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem asChild>
