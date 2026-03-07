@@ -7,15 +7,30 @@ const isProtectedRoute = createRouteMatcher([
     "/interview(.*)",
     "/onboarding(.*)",
 ])
+
+const isAuthRoute = createRouteMatcher([
+    "/sign-in(.*)",
+    "/sign-up(.*)"
+])
+
 export default clerkMiddleware(async (auth, req) => {
-    const { userId } = await auth();
-    if (!userId && isProtectedRoute(req)) {
-        const { redirectToSignIn } = await auth();
-        return redirectToSignIn();
+    const authObject = await auth();
+    console.log(`[Middleware] URL: ${req.url}`);
+    console.log(`[Middleware] Auth State: userId=${authObject.userId}, isAuthRoute=${isAuthRoute(req)}, isProtected=${isProtectedRoute(req)}`);
+
+    if (isAuthRoute(req)) {
+        if (authObject.userId) {
+            console.log(`[Middleware] Redirecting authenticated user away from auth route to dashboard`);
+            return NextResponse.redirect(new URL('/dashboard', req.url));
+        }
     }
-    return NextResponse.next();
 
-
+    if (isProtectedRoute(req)) {
+        if (!authObject.userId) {
+            console.log(`[Middleware] WARNING: Protected route hit but userId is null. Protecting/Redirecting to sign-in.`);
+        }
+        await auth.protect();
+    }
 });
 
 export const config = {
