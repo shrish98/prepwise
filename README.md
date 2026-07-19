@@ -1,5 +1,7 @@
 # 🎓 PrepWise — AI-Powered Mock Interview & Career Prep SaaS
 
+**Live Demo:** [https://ai-interview-prep-rose.vercel.app/](https://ai-interview-prep-rose.vercel.app/)
+
 PrepWise is a modern, full-stack AI Career Co-pilot designed to streamline job search preparation. By leveraging Next.js 16, Google Gemini, Inngest, Clerk, and Prisma, PrepWise automates the process of mock interviews, resume tracking, cover letter generation, and industry trend forecasting.
 
 ---
